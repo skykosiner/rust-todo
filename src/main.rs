@@ -1,4 +1,4 @@
-use std::{io, ptr::null}
+use std::io;
 
 #[derive(Debug)]
 struct TODO {
@@ -62,6 +62,7 @@ fn complete_todo(todos: Vec<TODO>) -> String {
             id: 69420,
             completed: false,
         };
+
         if todo.id == id {
             todo.completed = true;
             todo_to_return = todo;
@@ -90,6 +91,14 @@ fn main() {
     let mut todos: Vec<TODO> = Vec::new();
     let input = input_todo();
     todos.push(new_todo(input.to_string()));
+
+    let todo_push = TODO {
+        title: "nice".to_string(),
+        id: 69420,
+        completed: false,
+    };
+
+    todos.push(todo_push);
 
     let test = again(todos);
     println!("{}", test);
